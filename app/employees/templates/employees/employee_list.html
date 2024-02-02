@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Employee List</h2>
+  <ul>
+    {% for employee in employees %}
+      <li>
+        <a href="{% url 'employee_detail' employee.id %}">{{ employee.first_name }} {{ employee.last_name }}</a>
+      </li>
+    {% empty %}
+      <li>No employees.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
