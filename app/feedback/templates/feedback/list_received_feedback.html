@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Received by {{ receiver.first_name }} {{ receiver.last_name }}</title>
+</head>
+<body>
+    <h2>Feedback Received by {{ receiver.first_name }} {{ receiver.last_name }}</h2>
+    
+    {% if feedback_list %}
+        <ul>
+            {% for feedback in feedback_list %}
+                <li>
+                    <strong>Provider:</strong> {{ feedback.provider.id }} - {{ feedback.provider.first_name }} {{ feedback.provider.last_name }} <br>
+                    <strong>Situation:</strong> {{ feedback.situation }}<br>
+                    <strong>Behavior:</strong> {{ feedback.behavior }}<br>
+                    <strong>Impact:</strong> {{ feedback.impact }}<br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No feedback received yet.</p>
+    {% endif %}
+</body>
+</html>

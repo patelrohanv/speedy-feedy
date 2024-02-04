@@ -24,4 +24,5 @@ urlpatterns = [
     path("", home, name="home"),
     path("health/", health_check, name="health"),
     path("employees/", include("employees.urls")),
+    path("feedback/", include("feedback.urls")),
 ]
