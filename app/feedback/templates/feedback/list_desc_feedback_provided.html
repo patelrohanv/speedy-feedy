@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DESC Feedback Provided by {{ employee.first_name }} {{ employee.last_name }}</title>
+</head>
+<body>
+    <h2>DESC Feedback Provided by {{ employee.first_name }} {{ employee.last_name }}</h2>
+    
+    {% if feedback_list %}
+        <ul>
+            {% for feedback in feedback_list %}
+                <li>
+                    <strong>Describe:</strong> {{ feedback.describe }}<br>
+                    <strong>Explain:</strong> {{ feedback.explain }}<br>
+                    <strong>Specify:</strong> {{ feedback.specify }}<br>
+                    <strong>Consequences:</strong> {{ feedback.consequences }}<br>
+                    <strong>Received by:</strong> {{ feedback.receiver.first_name }} {{ feedback.receiver.last_name }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No DESC feedback provided yet.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Feedback Provided by {{ provider.first_name }} {{ provider.last_name }}</title>
+</head>
+<body>
+    <h2>All Feedback Provided by {{ provider.first_name }} {{ provider.last_name }}</h2>
+
+    <h3>SBI Feedback</h3>
+    {% if sbi_feedback_list %}
+        <ul>
+            {% for feedback in sbi_feedback_list %}
+                <li>
+                    <strong>Situation:</strong> {{ feedback.situation }}<br>
+                    <strong>Behavior:</strong> {{ feedback.behavior }}<br>
+                    <strong>Impact:</strong> {{ feedback.impact }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No SBI feedback provided yet.</p>
+    {% endif %}
+
+    <h3>DESC Feedback</h3>
+    {% if desc_feedback_list %}
+        <ul>
+            {% for feedback in desc_feedback_list %}
+                <li>
+                    <strong>Describe:</strong> {{ feedback.describe }}<br>
+                    <strong>Explain:</strong> {{ feedback.explain }}<br>
+                    <strong>Specify:</strong> {{ feedback.specify }}<br>
+                    <strong>Consequences:</strong> {{ feedback.consequences }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No DESC feedback provided yet.</p>
+    {% endif %}
+</body>
+</html>

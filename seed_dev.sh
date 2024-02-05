@@ -23,3 +23,4 @@ python manage.py migrate
 
 python manage.py create_employees 100
 python manage.py create_sbi 100
+python manage.py create_desc 100

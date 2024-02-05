@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SBI Feedback Received by {{ employee.first_name }} {{ employee.last_name }}</title>
+</head>
+<body>
+    <h2>SBI Feedback Received by {{ employee.first_name }} {{ employee.last_name }}</h2>
+    
+    {% if feedback_list %}
+        <ul>
+            {% for feedback in feedback_list %}
+                <li>
+                    <strong>Situation:</strong> {{ feedback.situation }}<br>
+                    <strong>Behavior:</strong> {{ feedback.behavior }}<br>
+                    <strong>Impact:</strong> {{ feedback.impact }}<br>
+                    <strong>Provided by:</strong> {{ feedback.provider.first_name }} {{ feedback.provider.last_name }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No SBI feedback received yet.</p>
+    {% endif %}
+</body>
+</html>
