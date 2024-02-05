@@ -7,10 +7,10 @@ class SBI_Feedback(models.Model):
     behavior = models.TextField()
     impact = models.TextField()
     provider = models.ForeignKey(
-        Employee, related_name="feedback_provided", on_delete=models.CASCADE
+        Employee, related_name="sbi_feedback_provided", on_delete=models.CASCADE
     )
     receiver = models.ForeignKey(
-        Employee, related_name="feedback_received", on_delete=models.CASCADE
+        Employee, related_name="sbi_feedback_received", on_delete=models.CASCADE
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

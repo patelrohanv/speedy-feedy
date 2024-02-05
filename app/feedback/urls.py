@@ -1,16 +1,20 @@
 from django.urls import path
-from .views import add_sbi_feedback, list_provided_feedback, list_received_feedback
+from .views import (
+    add_sbi_feedback,
+    list_sbi_feedback_provided,
+    list_sbi_feedback_received,
+)
 
 urlpatterns = [
-    path("", add_sbi_feedback, name="add_sbi_feedback"),
+    path("sbi", add_sbi_feedback, name="add_sbi_feedback"),
     path(
-        "provided/<int:provider_id>/",
-        list_provided_feedback,
-        name="list_provided_feedback",
+        "sbi/provided/<int:provider_id>/",
+        list_sbi_feedback_provided,
+        name="list_sbi_feedback_provided",
     ),
     path(
-        "received/<int:receiver_id>/",
-        list_received_feedback,
-        name="list_received_feedback",
+        "sbi/received/<int:receiver_id>/",
+        list_sbi_feedback_received,
+        name="list_sbi_feedback_received",
     ),
 ]
