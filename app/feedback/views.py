@@ -4,12 +4,16 @@ from employees.models import Employee
 from .models import SBI_Feedback
 
 
+def feedback_success(request):
+    return render(request, "feedback/sbi_feedback_success.html")
+
+
 def add_sbi_feedback(request):
     if request.method == "POST":
         form = SBIFeedbackForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("some_success_url")  # Redirect to a success page
+            return redirect("sbi_feedback_success")  # Redirect to a success page
     else:
         form = SBIFeedbackForm()
 
