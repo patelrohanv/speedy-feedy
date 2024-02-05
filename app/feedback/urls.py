@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import (
+    feedback_success,
     add_sbi_feedback,
     list_sbi_feedback_provided,
     list_sbi_feedback_received,
@@ -17,4 +18,5 @@ urlpatterns = [
         list_sbi_feedback_received,
         name="list_sbi_feedback_received",
     ),
+    path("success/", feedback_success, name="sbi_feedback_success"),
 ]
