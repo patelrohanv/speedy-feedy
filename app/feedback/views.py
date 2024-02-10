@@ -3,6 +3,38 @@ from django.urls import reverse
 from .forms import SBIFeedbackForm, DESCFeedbackForm
 from employees.models import Employee
 from .models import SBI_Feedback, DESC_Feedback
+from django.http import HttpResponseRedirect
+
+
+def list_grow_feedback_received(request, receiver_id):
+    return list_feedback(
+        request,
+        receiver_id,
+        "grow",
+        "feedback/list_grow_feedback_received.html",
+        "receiver",
+    )
+
+def list_grow_feedback_provided(request, provider_id):
+    return list_feedback(
+        request,
+        provider_id,
+        "grow",
+        "feedback/list_grow_feedback_provided.html",
+        "provider",
+    )
+
+def add_grow_feedback(request):
+    if request.method == 'POST':
+        form = add_grow_feedback(request.POST)
+        if form.is_valid():
+            form.save()
+            # Redirect to a new URL:
+            return HttpResponseRedirect('/thanks/')
+    else:
+        form = add_grow_feedback()
+
+    return render(request, "feedback/add_grow_feedback.html", {'form': form})
 
 
 def feedback_success(request):
@@ -49,7 +81,6 @@ def list_sbi_feedback_provided(request, provider_id):
         "feedback/list_sbi_feedback_provided.html",
         "provider",
     )
-
 
 def list_sbi_feedback_received(request, receiver_id):
     return list_feedback(
